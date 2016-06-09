@@ -22,7 +22,7 @@ myApp.factory('events', ['$http', function($http){
   };
 
   e.addRestaurant = function(id, restaurant) {
-    return $http.event('/events/' + id + '/restaurants.json', restaurant);
+    return $http.post('/events/' + id + '/restaurants.json', restaurant);
   };
 
   e.upvoteRestaurant = function(event, restaurant) {

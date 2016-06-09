@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160609131658) do
     t.string   "name"
     t.string   "description"
     t.datetime "end_time"
+    t.integer  "member_number"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160609131658) do
     t.string   "location"
     t.integer  "avg_price"
     t.integer  "event_id"
+    t.integer  "votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

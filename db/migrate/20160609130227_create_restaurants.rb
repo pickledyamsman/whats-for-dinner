@@ -6,6 +6,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :location
       t.integer :avg_price
       t.integer :event_id
+      t.integer :votes
 
       t.timestamps null: false
     end
