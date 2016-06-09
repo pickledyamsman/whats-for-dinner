@@ -6,11 +6,17 @@ myApp.controller('EventsCtrl', ['$scope', 'events', 'event', function($scope, ev
 
     events.addRestaurant(event.id, {
       name: $scope.name,
+      food_type: $scope.food_type,
+      avg_price: $scope.avg_price,
+      location: $scope.location,
     }).success(function(restaurant){
       $scope.event.restaurants.push(restaurant);
     });
 
     $scope.name = '';
+    $scope.food_type = '';
+    $scope.avg_price = '';
+    $scope.location = '';
   };
 
   $scope.incrementVotes = function(restaurant){

@@ -13,8 +13,11 @@
   {{restaurant.votes}}
   <span style="font-size:20px; margin-left:10px;">
     <h1>{{restaurant.name}}</h1>
-    {{restaurant.type}} {{restaurant.avg_price}} {{restaurant.location}}
-    {{restaurant.votes}}
+    <ul>
+      <li>Type of food: {{restaurant.food_type}}</li>
+      <li>Price: {{restaurant.avg_price}} dollars on average</li>
+      <li>Location: {{restaurant.location}}</li>
+    </ul>
   </span>
 </div>
 
@@ -23,7 +26,7 @@
 
   <div class="form-group">
     <input type="text" class="form-control" placeholder="name" ng-model="name"></input>
-    <input type="text" class="form-control" placeholder="type" ng-model="type"></input>
+    <input type="text" class="form-control" placeholder="type of food" ng-model="food_type"></input>
     <input type="text" class="form-control" placeholder="location" ng-model="location"></input>
     <input type="text" class="form-control" placeholder="average price" ng-model="avg_price"></input>
   </div>
