@@ -11,18 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609131706) do
+ActiveRecord::Schema.define(version: 20160609131658) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "time"
-    t.integer  "group_id"
-  end
-
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.datetime "end_time"
   end
 
   create_table "restaurants", force: :cascade do |t|

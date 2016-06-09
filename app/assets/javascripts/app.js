@@ -26,6 +26,16 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
           $state.go('home');
         })
       }]
+    })
+    .state('events', {
+      url: '/events/{id}',
+      templateUrl: 'events/_events.html',
+      controller: 'EventsCtrl',
+      resolve: {
+        post: ['$stateParams', 'events', function($stateParams, posts) {
+          return events.get($stateParams.id);
+        }]
+      }
     });
 
   $urlRouterProvider.otherwise('home');

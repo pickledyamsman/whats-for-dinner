@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
-  belongs_to :group 
   has_many :restaurants 
-  has_many :users, through: :groups
+  has_many :users
+
+  def as_json(options = {})
+    super(options.merge(include: [:user, restaurants: {include: :user}]))
+  end
 end

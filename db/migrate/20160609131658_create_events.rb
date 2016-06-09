@@ -3,8 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :name 
       t.string :description 
-      t.datetime :time 
-      t.integer :group_id
+      t.datetime :end_time 
     end
   end
 end

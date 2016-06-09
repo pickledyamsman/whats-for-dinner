@@ -2,3 +2,32 @@
   <h1>What's for dinner?</h1>
 </div>
 
+<div ng-repeat="event in events | orderBy:'name'">
+  <span style="font-size:20px; margin-left:10px;">
+    <a ng-show="event.name" href="#/events/{{event.id}}">
+      {{ event.name }} - {{ event.end_time }}  
+    </a>
+    <span ng-hide="event.name">
+      {{ event.name }}
+    </span>
+  </span>
+</div>
+
+<form ng-submit="addEvent()"
+  style="margin-top:30px;">
+  <h3>Add a new event</h3>
+
+  <div class="form-group">
+    <input type="text"
+    class="form-control"
+    placeholder="Name"
+    ng-model="name"></input>
+  </div>
+  <div class="form-group">
+    <input type="text"
+    class="form-control"
+    placeholder="Description"
+    ng-model="description"></input>
+  </div>
+  <button type="submit" class="btn btn-primary">New Event</button>
+</form>
