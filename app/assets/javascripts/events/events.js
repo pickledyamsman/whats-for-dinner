@@ -28,7 +28,14 @@ myApp.factory('events', ['$http', function($http){
   e.upvoteRestaurant = function(event, restaurant) {
     return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote.json')
       .success(function(data){
-        restaurant.upvotes += 1;
+        restaurant.votes += 1;
+      });
+  };
+
+  e.downvoteRestaurant = function(event, restaurant) {
+    return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote.json')
+      .success(function(data){
+        restaurant.votes -= 1;
       });
   };
 

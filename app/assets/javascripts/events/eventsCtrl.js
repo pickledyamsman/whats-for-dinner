@@ -13,7 +13,11 @@ myApp.controller('EventsCtrl', ['$scope', 'events', 'event', function($scope, ev
     $scope.name = '';
   };
 
-  $scope.incrementUpvotes = function(restaurant){
+  $scope.incrementVotes = function(restaurant){
     events.upvoteRestaurant(event, restaurant);
+  };
+
+  $scope.decrementVotes = function(restaurant){
+    events.downvoteRestaurant(event, restaurant);
   };
 }]);

@@ -8,14 +8,14 @@ class RestaurantsController < ApplicationController
   end
 
   def upvote
-    restaurant = @event.restaurants.find(parmas[:id])
+    restaurant = @event.restaurants.find(params[:id])
     restaurant.increment!(:votes)
 
     respond_with @event, restaurant
   end
 
   def downvote
-    restaurant = @event.restaurants.find(parmas[:id])
+    restaurant = @event.restaurants.find(params[:id])
     restaurant.decrement!(:votes)
 
     respond_with @event, restaurant

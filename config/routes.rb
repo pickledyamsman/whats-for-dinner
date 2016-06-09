@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:show, :create] do
       member do
         put '/upvote' => 'restaurants#upvote'
+        put '/downvote' => 'restaurants#downvote'
       end
     end
   end
