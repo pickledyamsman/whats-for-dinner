@@ -3,11 +3,9 @@
 </div>
 
 <div ng-repeat="event in events | orderBy:'name'">
-  <span style="font-size:20px; margin-left:10px;">
-    <a ng-show="event.name" href="#/events/{{event.id}}">
-      {{ event.name }} - ends at {{ event.end_time | date:' HH:mm MM-dd-yy' }}
-    </a>
-  </span>
+  <span><a href="#/events/{{event.id}}">
+    {{ event.name }} - ends at {{ event.end_time | date:' HH:mm MM-dd-yy' }}
+  </a></span>
 </div>
 
 <form ng-submit="addEvent()" style="margin-top:30px;">

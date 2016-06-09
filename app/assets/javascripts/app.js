@@ -37,7 +37,7 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
       templateUrl: 'events/_events.html',
       controller: 'EventsCtrl',
       resolve: {
-        post: ['$stateParams', 'events', function($stateParams, posts) {
+        event: ['$stateParams', 'events', function($stateParams, events) {
           return events.get($stateParams.id);
         }]
       }
