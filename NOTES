@@ -1,0 +1,66 @@
+ANGULAR
+
+- Must use an Angular Front-End that includes at least 5 pages
+
+- Must contain some sort of nested views
+  -- click to bring up new restaurant form onto current page.
+
+- Must contain some sort of searching as well as filtering based on some criteria. Ex: All items in the "fruit" category, or all tasks past due
+  -- find restaurant based on multiple filters.
+
+- Must contain at least one page that allows for dynamic updating of a single field of a resource. Ex: Allow changing of quantity in a shopping cart
+  -- create new restaurant that will add to list dynamicly
+
+- Links should work correctly. Ex: Clicking on a product in a list, should take you to the show page for that product
+
+- Data should be validated in Angular before submission
+
+- Must talk to the Rails backend using $http and Services.
+
+RAILS
+
+- Backend created with JSON that accepts and stores the data for Angular
+
+-------------------------------------------------------------------------
+
+[X] Model Assosciations:
+
+[X]-- User has many groups, has many events through group.
+
+[X]-- group has many events, has many users.
+
+[X]-- event belongs to group, has many restaurants, has many users through group.
+
+[X]-- restaurant belongs to event
+
+-------------------------------------------------------------------------
+
+[X] Migrations:
+
+[X]-restaurants: name, average price, location, type of food, description(optional) event_id
+
+[X]-devise user: for login default is fine
+
+[X]-events: name, description, time, group_id
+
+[X]-group: name, description
+
+
+-------------------------------------------------------------------------
+
+To Do:
+
+[ ]Users join a group (friends, couple), group has a list of restaurants that are added by other members of the group.
+
+[ ]Users vote on restaurants using up/down voting. 
+
+[ ]More popular places move up the ranking. 
+
+[ ]Each user in a group can vote on each restaurant one time.
+
+[ ]Search box filtering (price, type, name)
+
+-------------------------------------------------------------------------
+
+
+
