@@ -1,31 +1,31 @@
 <div class="page-header">
   <h3>
-    <a ng-show="post.link" href="{{post.link}}">
-      {{post.title}}
+    <a ng-show="event.link" href="#/events/{{event.id}}">
+      {{event.name}}
     </a>
-    <span ng-hide="post.link">
-      {{post.title}}
+    <span ng-hide="event.link">
+      {{event.name}}
     </span>
   </h3>
 </div>
 
-<div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+<div ng-repeat="restaurant in event.restaurants | orderBy:'-upvotes'">
   <span class="glyphicon glyphicon-arrow-up" 
-    ng-click="incrementUpvotes(comment)"></span> <!-- will icon work? -->
-  {{comment.upvotes}} - by {{comment.user.username}}
+    ng-click="incrementUpvotes(restaurant)"></span> <!-- will icon work? -->
+  {{restaurant.upvotes}}
   <span style="font-size:20px; margin-left:10px;">
-    {{comment.body}}
+    {{restaurant.description}}
   </span>
 </div>
-<form ng-submit="addComment()"
+<form ng-submit="addRestaurant()"
   style="margin-top:30px;">
-  <h3>Add a new comment</h3>
+  <h3>Add a new restaurant</h3>
 
   <div class="form-group">
     <input type="text"
     class="form-control"
-    placeholder="Comment"
+    placeholder="restaurant"
     ng-model="body"></input>
   </div>
-  <button type="submit" class="btn btn-primary">Post</button>
+  <button type="submit" class="btn btn-primary">Event</button>
 </form>

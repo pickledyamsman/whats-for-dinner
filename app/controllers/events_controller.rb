@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    respond_with Event.create(post_params.merge(user_id: current_user.id))
+    respond_with Event.create(post_params)
   end
 
   def show
