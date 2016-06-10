@@ -5,20 +5,39 @@
     <p>{{event.description}}</p>
 </div>
 
-<div ng-repeat="restaurant in event.restaurants | orderBy:'-votes'">
-  <span class="glyphicon glyphicon-arrow-up" 
-    ng-click="incrementVotes(restaurant)"></span> <!-- will icon work? -->
-  <span class="glyphicon glyphicon-arrow-down" 
-    ng-click="decrementVotes(restaurant)"></span>
-  {{restaurant.votes}}
-  <span style="font-size:20px; margin-left:10px;">
-    <h1>{{restaurant.name}}</h1>
-    <ul>
-      <li>Type of food: {{restaurant.food_type}}</li>
-      <li>Price: {{restaurant.avg_price}} dollars on average</li>
-      <li>Location: {{restaurant.location}}</li>
-    </ul>
-  </span>
+<span>
+  <h3>Search: <input ng-model="restaurant.query" /></h3>
+  <h3>Filter results by: </h3>
+  <select ng-model="restaurant.orderProp">
+    <option value="-votes">Most Votes</option>
+    <option value="name">Alphabetically</option>
+    <option value="-created_at">Newest</option>
+    <option value="avg_price">Lowest Price</option>
+    <option value="-avg_price">Highest Price</option>
+  </select>
+</span><hr>
+
+<div ng-repeat="restaurant in event.restaurants | filter:restaurant.query | orderBy:'-votes' | orderBy:restaurant.orderProp">
+  <div class="row">
+    
+    <div class="col-md-3" style="margin-top:30px;">
+      <button class="glyphicon glyphicon-arrow-up" 
+        ng-click="incrementVotes(restaurant)" style="color:green;"></button> 
+      <button class="glyphicon glyphicon-arrow-down" 
+        ng-click="decrementVotes(restaurant)" style="color:red;"></button>
+      {{restaurant.votes || 0}} votes.
+    </div>
+
+    <div class="col-md-9">
+      <h2>{{restaurant.name}}</h2>
+      <ul>
+        <li>Type of food: {{restaurant.food_type}}</li>
+        <li>Price: {{restaurant.avg_price}} dollars on average</li>
+        <li>Location: {{restaurant.location}}</li>
+      </ul>
+    </div>
+  </div>
+  
 </div>
 
 <form ng-submit="addRestaurant()" style="margin-top:30px;">
