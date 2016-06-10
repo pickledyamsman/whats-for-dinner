@@ -29,6 +29,7 @@ myApp.factory('events', ['$http', function($http){
     return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote.json')
       .success(function(data){
         restaurant.votes += 1;
+        restaurant.hadIncremented = true;
       });
   };
 
@@ -36,6 +37,7 @@ myApp.factory('events', ['$http', function($http){
     return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote.json')
       .success(function(data){
         restaurant.votes -= 1;
+        restaurant.hadDecremented = true;
       });
   };
 

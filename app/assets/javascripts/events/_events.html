@@ -40,9 +40,9 @@
   
 </div>
 
-<form ng-submit="addRestaurant()" style="margin-top:30px;">
-  <h3>Add a new restaurant</h3>
 
+<button class="btn-lg" ng-click="showNewRestaurant = !showNewRestaurant">Add a new restaurant</button>
+<form ng-show="showNewRestaurant" ng-submit="addRestaurant()" style="margin-top:30px;">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="name" ng-model="name"></input>
     <input type="text" class="form-control" placeholder="type of food" ng-model="food_type"></input>

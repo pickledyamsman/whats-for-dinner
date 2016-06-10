@@ -18,12 +18,20 @@ myApp.controller('EventsCtrl', ['$scope', 'events', 'event', function($scope, ev
     $scope.avg_price = '';
     $scope.location = '';
   };
+  
+  // can only upvote and downvote once. You can do both but it will cancel out
+  // your vote.
 
   $scope.incrementVotes = function(restaurant){
-    events.upvoteRestaurant(event, restaurant);
+    if(!restaurant.hadIncremented){
+      events.upvoteRestaurant(event, restaurant);
+    }
+    
   };
 
   $scope.decrementVotes = function(restaurant){
-    events.downvoteRestaurant(event, restaurant);
+    if(!restaurant.hadDecremented){
+      events.downvoteRestaurant(event, restaurant);
+    }
   };
 }]);

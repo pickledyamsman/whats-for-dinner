@@ -2,7 +2,7 @@ ANGULAR
 
 [ ]- Must use an Angular Front-End that includes at least 5 pages
 
-[ ]- Must contain some sort of nested views
+[X]- Must contain some sort of nested views
   -- click to bring up new restaurant form onto current page.
 
 [X]- Must contain some sort of searching as well as filtering based on some criteria. Ex: All items in the "fruit" category, or all tasks past due
@@ -52,15 +52,15 @@ To Do:
 
 [X]More popular places move up the ranking. 
 
-[ ]Each user in a group can vote on each restaurant one time.
+[X]Each user in a group can vote on each restaurant one time.
 
 [X]Search box filtering (price, type, name)
 
-[ ]Nested View
+[X]Nested View
 
 [X]Use Services (factory is like a service)
 
-[ ]Better date/time for countdown. (Save date and time seperately? make countdown?)
+[X]Better date/time for countdown. (Save date and time seperately? make countdown?)
 
 [ ]Remove unneeded code
 
