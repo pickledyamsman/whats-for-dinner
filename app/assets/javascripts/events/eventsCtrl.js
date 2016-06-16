@@ -1,10 +1,10 @@
-app.controller('EventsCtrl', ['$scope', 'events', 'event', function($scope, events, event){
+app.controller('EventsCtrl', ['$scope', 'eventsService', 'event', function($scope, eventsService, event){
   $scope.event = event;
   
   $scope.addRestaurant = function(){
     if($scope.name === '') { return; }
 
-    events.addRestaurant(event.id, {
+    eventsService.addRestaurant(event.id, {
       name: $scope.name,
       food_type: $scope.food_type,
       avg_price: $scope.avg_price,
@@ -24,14 +24,14 @@ app.controller('EventsCtrl', ['$scope', 'events', 'event', function($scope, even
 
   $scope.incrementVotes = function(restaurant){
     if(!restaurant.hadIncremented){
-      events.upvoteRestaurant(event, restaurant);
+      eventsService.upvoteRestaurant(event, restaurant);
     }
     
   };
 
   $scope.decrementVotes = function(restaurant){
     if(!restaurant.hadDecremented){
-      events.downvoteRestaurant(event, restaurant);
+      eventsService.downvoteRestaurant(event, restaurant);
     }
   };
 }]);

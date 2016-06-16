@@ -1,4 +1,4 @@
-app.service('events', ['$http', function($http){
+app.service('eventsService', ['$http', function($http){
   var e = {
     events: []
   };

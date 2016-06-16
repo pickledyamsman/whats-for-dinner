@@ -1,10 +1,10 @@
-app.controller('MainCtrl', ['$scope', 'events', function($scope, events) {
-    $scope.events = events.events;
+app.controller('MainCtrl', ['$scope', 'eventsService', function($scope, eventsService) {
+    $scope.events = eventsService.events;
 
   $scope.addEvent = function(){
     if(!$scope.name || $scope.description == '') {return;}
 
-    events.create({
+    eventsService.create({
       name: $scope.name,
       description: $scope.description,
       end_time: $scope.end_time

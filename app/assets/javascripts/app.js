@@ -8,8 +8,8 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
       templateUrl: 'home/_home.html',
       controller: 'MainCtrl',
       resolve: {
-        eventPromise: ['events', function(events){
-          return events.getAll();
+        eventPromise: ['eventsService', function(eventsService){
+          return eventsService.getAll();
         }]
       }
     })
@@ -38,8 +38,8 @@ app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $url
       templateUrl: 'events/_events.html',
       controller: 'EventsCtrl',
       resolve: {
-        event: ['$stateParams', 'events', function($stateParams, events) {
-          return events.get($stateParams.id);
+        event: ['$stateParams', 'eventsService', function($stateParams, eventsService) {
+          return eventsService.get($stateParams.id);
         }]
       }
     });
