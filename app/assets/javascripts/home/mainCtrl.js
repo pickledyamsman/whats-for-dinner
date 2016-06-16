@@ -1,5 +1,5 @@
-app.controller('MainCtrl', ['$scope', 'eventsService', function($scope, eventsService) {
-    $scope.events = eventsService.events;
+function MainCtrl($scope, eventsService){
+  $scope.events = eventsService.events;
 
   $scope.addEvent = function(){
     if(!$scope.name || $scope.description == '') {return;}
@@ -14,4 +14,9 @@ app.controller('MainCtrl', ['$scope', 'eventsService', function($scope, eventsSe
     $scope.description = '';
     $scope.end_time = '';
   };
-}]);
+}
+
+
+angular
+  .module('app')
+  .controller('MainCtrl', MainCtrl)

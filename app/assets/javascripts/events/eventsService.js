@@ -1,4 +1,4 @@
-app.service('eventsService', ['$http', function($http){
+function eventsService($http){
   var e = {
     events: []
   };
@@ -42,4 +42,8 @@ app.service('eventsService', ['$http', function($http){
   };
 
   return e; 
-}]);
+}
+
+angular
+  .module('app')
+  .service('eventsService', eventsService)

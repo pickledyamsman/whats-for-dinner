@@ -1,4 +1,4 @@
-app.controller('EventsCtrl', ['$scope', 'eventsService', 'event', function($scope, eventsService, event){
+function EventsCtrl($scope, eventsService, event){
   $scope.event = event;
   
   $scope.addRestaurant = function(){
@@ -34,4 +34,8 @@ app.controller('EventsCtrl', ['$scope', 'eventsService', 'event', function($scop
       eventsService.downvoteRestaurant(event, restaurant);
     }
   };
-}]);
+}
+
+angular
+  .module('app')
+  .controller('EventsCtrl', EventsCtrl)
