@@ -7,7 +7,7 @@ angular
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/home',
+        url: '/',
         templateUrl: 'home/_home.html',
         controller: 'MainCtrl',
         resolve: {
@@ -47,5 +47,5 @@ angular
         }
       });
 
-  $urlRouterProvider.otherwise('home');
+  $urlRouterProvider.otherwise('/');
 });       

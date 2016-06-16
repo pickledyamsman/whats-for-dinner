@@ -10,7 +10,7 @@ function eventsService($http){
   };
 
   e.create = function(event) {
-    return $http.post('/events.json', event).success(function(data){
+    return $http.post('/events.json', event).then(function(data){
       e.events.push(data);
     });
   };
@@ -27,7 +27,7 @@ function eventsService($http){
 
   e.upvoteRestaurant = function(event, restaurant) {
     return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote.json')
-      .success(function(data){
+      .then(function(data){
         restaurant.votes += 1;
         restaurant.hadIncremented = true;
       });
@@ -35,7 +35,7 @@ function eventsService($http){
 
   e.downvoteRestaurant = function(event, restaurant) {
     return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote.json')
-      .success(function(data){
+      .then(function(data){
         restaurant.votes -= 1;
         restaurant.hadDecremented = true;
       });
