@@ -56,14 +56,14 @@ When you're done, your setup should look similar to the following:
 >
 ```html
 <!doctype html>
-<html ng-app="myApp">
+<html ng-app="app">
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
     <script src="js/angular-ui-router.min.js"></script>
     <script>
-        var myApp = angular.module('myApp', ['ui.router']);
+        var app = angular.module('app', ['ui.router']);
         // For Component users, it should look like this:
-        // var myApp = angular.module('myApp', [require('angular-ui-router')]);
+        // var app = angular.module('app', [require('angular-ui-router')]);
     </script>
     ...
 </head>
@@ -135,7 +135,7 @@ The majority of UI-Router's power is in its ability to nest states & views.
 
 >
 ```javascript
-myApp.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/state1");
@@ -199,7 +199,7 @@ interfaces more effectively by nesting your views, and pairing those views with 
 **(3)** Set up your states in the module config:
 >
 ```javascript
-myApp.config(function($stateProvider) {
+app.config(function($stateProvider) {
   $stateProvider
     .state('index', {
       url: "",

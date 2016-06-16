@@ -1,4 +1,4 @@
-myApp.factory('events', ['$http', function($http){
+app.service('events', ['$http', function($http){
   var e = {
     events: []
   };

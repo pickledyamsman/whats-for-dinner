@@ -1,4 +1,4 @@
-myApp.controller('MainCtrl', ['$scope', 'events', function($scope, events) {
+app.controller('MainCtrl', ['$scope', 'events', function($scope, events) {
     $scope.events = events.events;
 
   $scope.addEvent = function(){

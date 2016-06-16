@@ -1,6 +1,7 @@
-var myApp = angular.module('whatsfordinner', ['ui.router','templates', 'Devise']);
+var app = angular
+  .module('whatsfordinner', ['ui.router','templates', 'Devise']);
 
-myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',

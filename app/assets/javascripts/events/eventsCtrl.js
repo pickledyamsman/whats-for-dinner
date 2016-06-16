@@ -1,4 +1,4 @@
-myApp.controller('EventsCtrl', ['$scope', 'events', 'event', function($scope, events, event){
+app.controller('EventsCtrl', ['$scope', 'events', 'event', function($scope, events, event){
   $scope.event = event;
   
   $scope.addRestaurant = function(){
