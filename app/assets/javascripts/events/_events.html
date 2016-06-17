@@ -1,4 +1,5 @@
 <div class="page-header">
+  <!-- event data -->
   <h3>
     {{event.name}} - ends at {{event.end_time | date:' HH:mm MM-dd-yy'}}
   </h3>
@@ -6,7 +7,9 @@
 </div>
 
 <span>
+  <!-- search box -->
   <h3>Search: <input ng-model="restaurant.query" /></h3>
+  <!-- filter dropdown with options -->
   <h3>Filter results by: </h3>
   <select ng-model="restaurant.orderProp">
     <option value="-votes">Most Votes</option>
@@ -21,14 +24,17 @@
   <div class="row">
     
     <div class="col-md-3" style="margin-top:30px;">
+      <!-- upvote button -->
       <button class="glyphicon glyphicon-arrow-up" 
         ng-click="incrementVotes(restaurant)" style="color:green;"></button> 
+      <!-- downvote button -->
       <button class="glyphicon glyphicon-arrow-down" 
         ng-click="decrementVotes(restaurant)" style="color:red;"></button>
+      <!-- shows vote count -->
       {{restaurant.votes || 0}} votes.
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9"> <!-- restaurant data -->
       <h2>{{restaurant.name}}</h2>
       <ul>
         <li>Type of food: {{restaurant.food_type}}</li>
@@ -40,8 +46,10 @@
   
 </div>
 
-
+<!-- new restaurant button, toggle show -->
 <button class="btn-lg" ng-click="showNewRestaurant = !showNewRestaurant">Add a new restaurant</button>
+
+<!-- form for new restaurant -->
 <form ng-show="showNewRestaurant" ng-submit="addRestaurant()" style="margin-top:30px;">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="name" ng-model="name"></input>

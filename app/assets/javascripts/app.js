@@ -1,6 +1,8 @@
 angular
   .module('app', [
     'ui.router',
+    'ngResource',
+    'ngSanitize',
     'templates', 
     'Devise'
     ])

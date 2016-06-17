@@ -9,13 +9,13 @@ function MainCtrl($scope, eventsService){
       description: $scope.description,
       end_time: $scope.end_time
     });
-
+    
+    // resets value so you can add multiple. 
     $scope.name = '';
     $scope.description = '';
     $scope.end_time = '';
   };
 }
-
 
 angular
   .module('app')

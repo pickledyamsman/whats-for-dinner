@@ -3,21 +3,21 @@ function eventsService($http){
     events: []
   };
 
-  e.getAll = function() {
+  e.getAll = function() { //gets all events
     return $http.get('/events.json').success(function(data){
-      angular.copy(data, e.events)
+      angular.copy(data, e.events) // copies the data that is returned to e.events
     });
   };
 
-  e.create = function(event) {
+  e.create = function(event) { // creates event. post request. pushes to e.events
     return $http.post('/events.json', event).then(function(data){
       e.events.push(data);
     });
   };
 
-  e.get = function(id) {
-    return $http.get('/events/' + id + '.json').then(function(res){
-      return res.data;
+  e.get = function(id) { // gets specified event by id.
+    return $http.get('/events/' + id + '.json').then(function(event){
+      return event.data;
     });
   };
 
@@ -26,7 +26,7 @@ function eventsService($http){
   };
 
   e.upvoteRestaurant = function(event, restaurant) {
-    return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote.json')
+    return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote.json') // /upvote.json in restaurants_controller.rb
       .then(function(data){
         restaurant.votes += 1;
         restaurant.hadIncremented = true;
@@ -34,7 +34,7 @@ function eventsService($http){
   };
 
   e.downvoteRestaurant = function(event, restaurant) {
-    return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote.json')
+    return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote.json') // /upvote.json in restaurants_controller.rb
       .then(function(data){
         restaurant.votes -= 1;
         restaurant.hadDecremented = true;

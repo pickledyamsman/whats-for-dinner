@@ -2,14 +2,17 @@
   <h1>What's for dinner?</h1>
 </div>
 
+<!-- shows all events ordered by end_time  events come from eventsService -->
 <div ng-repeat="event in events | orderBy:'end_time'">
-  <span><a href="#/events/{{event.id}}">
-    <h4>{{ event.name }}</h4></a> - ends at {{ event.end_time | date:' HH:mm MM-dd-yy' }}
+  <span><a href="#/events/{{event.id}}"> <!-- link to event page -->
+    <h4>{{ event.name }}</h4></a> - ends: {{ event.end_time | date:' HH:mm MM-dd-yy' }}
   </span><br><br>
 </div>
 
+<!-- button to toggle new event form -->
 <button class="btn-lg" ng-click="showNewEvent = !showNewEvent">Add a new event</button>
 
+<!-- form to create new event -->
 <form ng-show="showNewEvent" ng-submit="addEvent()" style="margin-top:30px;">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Name" ng-model="name"></input>

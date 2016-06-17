@@ -9,14 +9,14 @@ class RestaurantsController < ApplicationController
 
   def upvote
     restaurant = @event.restaurants.find(params[:id])
-    restaurant.increment!(:votes)
+    restaurant.increment!(:votes) # ! saves the record. ActiveRecord method
 
     respond_with @event, restaurant
   end
 
   def downvote
     restaurant = @event.restaurants.find(params[:id])
-    restaurant.decrement!(:votes)
+    restaurant.decrement!(:votes) # ! saves the record ActiveRecord method
 
     respond_with @event, restaurant
   end
