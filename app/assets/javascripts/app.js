@@ -4,7 +4,8 @@ angular
     'ngResource',
     'ngSanitize',
     'templates', 
-    'Devise'
+    'Devise',
+    'ngMessages'
     ])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -49,5 +50,5 @@ angular
         }
       });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('home');
 });       
