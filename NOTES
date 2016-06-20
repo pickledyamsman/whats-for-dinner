@@ -1,6 +1,6 @@
 ANGULAR
 
-[ ]- Must use an Angular Front-End that includes at least 5 pages
+[X]- Must use an Angular Front-End that includes at least 5 pages
 
 [X]- Must contain some sort of nested views
   -- click to bring up new restaurant form onto current page.
@@ -62,9 +62,18 @@ To Do:
 
 [X]Better date/time for countdown. (Save date and time seperately? make countdown?)
 
-[ ]Remove unneeded code
+[X]Remove unneeded code
 
 -------------------------------------------------------------------------
+
+user only votes once
+join table
+
+
+add multiple types of restaurant.
+  Add type
+    [   ]
+    [   ]
 
 
 
