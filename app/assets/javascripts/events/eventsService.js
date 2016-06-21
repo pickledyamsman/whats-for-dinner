@@ -26,19 +26,31 @@ function eventsService($http){
   };
 
   e.upvoteRestaurant = function(event, restaurant) {
-    return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote.json')
+    return $http.delete('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote')
+    .then(function(data){
+      restaurant.votes += 1;
+    }, function(data){
+      return $http.post('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote')
       .then(function(data){
         restaurant.votes += 1;
-        restaurant.hadIncremented = true;
+      }, function(data){
+        console.log("You can only vote once.")
       });
+    });
   };
 
   e.downvoteRestaurant = function(event, restaurant) {
-    return $http.put('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote.json')
+    return $http.delete('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote')
+    .then(function(data){
+      restaurant.votes -= 1;
+    }, function(data){
+      return $http.post('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote')
       .then(function(data){
         restaurant.votes -= 1;
-        restaurant.hadDecremented = true;
+      }, function(data){
+        console.log("You can only vote once.")
       });
+    });
   };
 
   return e; 

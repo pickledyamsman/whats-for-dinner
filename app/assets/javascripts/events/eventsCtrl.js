@@ -2,6 +2,19 @@ function EventsCtrl($scope, eventsService, event){
   $scope.event = event;
   $scope.food_types = [{id: 'food_type1'}];
   
+// i suspect that you will need to first convert this.food_types 
+//into a simple hash with the right structure
+
+
+// it gives you the objects, but rails can't pull out the right info
+
+
+// so something like:
+//   var fixed_food_types = {};
+//   this.food_types.each do |f|
+//     fixed_food_types[f.id] = f.type_name;
+//   end
+  
   $scope.addRestaurant = function(){
     if($scope.name === '') { return; }
 
@@ -24,16 +37,11 @@ function EventsCtrl($scope, eventsService, event){
   // your vote.
 
   $scope.incrementVotes = function(restaurant){
-    if(!restaurant.hadIncremented){
-      eventsService.upvoteRestaurant(event, restaurant);
-    }
-    
+    eventsService.upvoteRestaurant(event, restaurant);
   };
 
   $scope.decrementVotes = function(restaurant){
-    if(!restaurant.hadDecremented){
-      eventsService.downvoteRestaurant(event, restaurant);
-    }
+    eventsService.downvoteRestaurant(event, restaurant);
   };
 
   $scope.addNewType = function(){
