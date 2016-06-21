@@ -1,21 +1,14 @@
 function EventsCtrl($scope, eventsService, event){
   $scope.event = event;
-  $scope.food_types = [{id: 'food_type1'}];
+  $scope.food_types = [{id: '1'}];
   
-// i suspect that you will need to first convert this.food_types 
-//into a simple hash with the right structure
-
-
-// it gives you the objects, but rails can't pull out the right info
-
-
-// so something like:
-//   var fixed_food_types = {};
-//   this.food_types.each do |f|
-//     fixed_food_types[f.id] = f.type_name;
-//   end
+  $scope.addNewType = function(){
+    var newTypeNo = $scope.food_types.length+1;
+    $scope.food_types.push({'id':newTypeNo});
+  };
   
   $scope.addRestaurant = function(){
+    
     if($scope.name === '') { return; }
 
     eventsService.addRestaurant(event.id, {
@@ -44,10 +37,6 @@ function EventsCtrl($scope, eventsService, event){
     eventsService.downvoteRestaurant(event, restaurant);
   };
 
-  $scope.addNewType = function(){
-    var newTypeNo = $scope.food_types.length+1;
-    $scope.food_types.push({'id':'food_type'+newTypeNo});
-  };
 }
 
 angular
