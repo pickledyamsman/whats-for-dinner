@@ -1,12 +1,13 @@
 function EventsCtrl($scope, eventsService, event){
   $scope.event = event;
+  $scope.food_types = [{id: 'food_type1'}];
   
   $scope.addRestaurant = function(){
     if($scope.name === '') { return; }
 
     eventsService.addRestaurant(event.id, {
       name: $scope.name,
-      food_type: $scope.food_type,
+      food_type: this.food_types,
       avg_price: $scope.avg_price,
       location: $scope.location,
     }).success(function(restaurant){
@@ -33,6 +34,11 @@ function EventsCtrl($scope, eventsService, event){
     if(!restaurant.hadDecremented){
       eventsService.downvoteRestaurant(event, restaurant);
     }
+  };
+
+  $scope.addNewType = function(){
+    var newTypeNo = $scope.food_types.length+1;
+    $scope.food_types.push({'id':'food_type'+newTypeNo});
   };
 }
 
