@@ -33,8 +33,6 @@ function eventsService($http){
       return $http.post('/events/' + event.id + '/restaurants/'+ restaurant.id + '/upvote')
       .then(function(data){
         restaurant.votes += 1;
-      }, function(data){
-        console.log("You can only vote once.")
       });
     });
   };
@@ -47,8 +45,6 @@ function eventsService($http){
       return $http.post('/events/' + event.id + '/restaurants/'+ restaurant.id + '/downvote')
       .then(function(data){
         restaurant.votes -= 1;
-      }, function(data){
-        console.log("You can only vote once.")
       });
     });
   };

@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     my_params = restaurant_params
     my_params["food_type"] = params["restaurant"]["food_type"]
     restaurant = Restaurant.create(my_params)
-    puts my_params
+    binding.pry
     respond_with @event, restaurant
   end
 
@@ -28,7 +28,7 @@ class RestaurantsController < ApplicationController
 
   private
     def restaurant_params
-      params.require(:restaurant).permit(:name, :location, :avg_price, :event_id, :votes, food_type: {:id, :type_name})
+      params.require(:restaurant).permit(:name, :location, :avg_price, :event_id, :votes)
     end
 
     def set_event
