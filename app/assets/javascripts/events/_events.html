@@ -59,10 +59,10 @@
 
     <div>
       <label>Food Types</label>
-      <div ng-repeat="food_type in food_types">
-        <input type="text" class="form-control" placeholder="type of food" ng-model="food_type.type_name"></input>
+      <div ng-repeat="food_type in food_types" ng-model="food_type">
+        <input type="text" class="form-control" placeholder="type of food" ng-model="type_name"></input>
       </div>
-      <button class="btn btn-sm" ng-click="addNewType()">New Type</button>  
+      <button type="button" class="btn btn-sm" ng-click="addNewType()">New Type</button>  
     </div>
     
 
