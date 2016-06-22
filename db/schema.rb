@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(version: 20160621125646) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
-    t.text     "food_type"
+    t.text     "food_types", default: "--- []\n"
     t.string   "location"
     t.integer  "avg_price"
     t.integer  "event_id"
     t.integer  "votes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|
