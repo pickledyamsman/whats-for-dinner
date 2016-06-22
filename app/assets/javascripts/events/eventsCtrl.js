@@ -1,13 +1,5 @@
 function EventsCtrl($scope, eventsService, event){
   $scope.event = event;
-  $scope.new_food_types = [{id: '1'}];
-  
-  $scope.addNewType = function(){
-    var newTypeNo = $scope.new_food_types.length+1;
-    $scope.new_food_types.push({'id':newTypeNo});
-  };
-  
-  // food_type.split(',')[1].split('=>')[1].split('\"')[1]
 
   $scope.addRestaurant = function(){
     
@@ -15,7 +7,7 @@ function EventsCtrl($scope, eventsService, event){
 
     eventsService.addRestaurant(event.id, {
       name: $scope.name,
-      food_types: this.new_food_types,
+      food_types: $scope.food_type,
       avg_price: $scope.avg_price,
       location: $scope.location,
     }).success(function(restaurant){
@@ -23,7 +15,7 @@ function EventsCtrl($scope, eventsService, event){
     });
 
     $scope.name = '';
-    $scope.food_types = '';
+    $scope.food_type = '';
     $scope.avg_price = '';
     $scope.location = '';
   };
