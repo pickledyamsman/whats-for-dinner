@@ -7,6 +7,8 @@ function EventsCtrl($scope, eventsService, event){
     $scope.food_types.push({'id':newTypeNo});
   };
   
+  // food_type.split(',')[1].split('=>')[1].split('\"')[1]
+
   $scope.addRestaurant = function(){
     
     if($scope.name === '') { return; }
@@ -36,6 +38,7 @@ function EventsCtrl($scope, eventsService, event){
   $scope.decrementVotes = function(restaurant){
     eventsService.downvoteRestaurant(event, restaurant);
   };
+
 
 }
 

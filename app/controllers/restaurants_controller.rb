@@ -2,8 +2,6 @@ class RestaurantsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :upvote]
   before_action :set_event
 
-  
-
   def create
     my_params = restaurant_params
     my_params["food_type"] = params["restaurant"]["food_type"]

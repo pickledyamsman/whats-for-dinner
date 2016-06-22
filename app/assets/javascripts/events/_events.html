@@ -40,9 +40,9 @@
         <li>Price: {{restaurant.avg_price}} dollars on average</li>
         <li>Location: {{restaurant.location}}</li>
 
-        Types of food: {{restaurant}} <br><br> {{restaurant.food_type[type_name]}}
-        <div ng-repeat="food_type in restaurant">
-
+        Types of food: res - {{restaurant}} <br><br>  res food - {{restaurant.food_type.split('{}')}}<br>
+        <div ng-repeat="food_type in food_type">
+            {{food_type.type_name}}
         </div>
       </ul>
     </div>
