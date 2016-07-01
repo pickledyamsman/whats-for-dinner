@@ -1,13 +1,12 @@
 class Restaurant < ActiveRecord::Base
+
   belongs_to :event
   belongs_to :user
 
-  has_many :restaurant_upvotes, dependent: :destroy
-  has_many :restaurant_downvotes, dependent: :destroy
-  has_many :upvoted_users, through: :restaurant_upvotes, source: :user
-  has_many :downvoted_users, through: :restaurant_downvotes, source: :user
+  has_many :food_types, dependent: :destroy
+
 
   def as_json(options = {})
-    super(options.merge(include: [:user]))
+    super(options.merge(include: [:food_types]))
   end
 end

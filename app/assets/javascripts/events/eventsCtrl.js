@@ -1,13 +1,18 @@
 function EventsCtrl($scope, eventsService, event){
+
   $scope.event = sanitizeEvents(event);
-  $scope.food_types = [{id: '1'}];
+  $scope.food_types = [];
+
   
-  $scope.addNewType = function(){
-    var newTypeNo = $scope.food_types.length+1;
-    $scope.food_types.push({'id':newTypeNo});
+
+  $scope.addFoodType = function(type_name){
+    var newFoodType = {
+                    type_name: type_name, 
+                    id: null // ID on new objects is null until the DB defines it
+                  };
+    $scope.food_types.push(newFoodType);
   };
   
-  // food_type.split(',')[1].split('=>')[1].split('\"')[1]
 
   $scope.addRestaurant = function(){
     
@@ -39,6 +44,10 @@ function EventsCtrl($scope, eventsService, event){
     eventsService.downvoteRestaurant(event, restaurant);
   };
 
+  function init() {
+    $scope.addFoodType(""); // Create a new blank food type
+  }
+
   function sanitizeEvents(event) {
      event['restaurants'] = event['restaurants'].map(function (res) {
          return sanitizeRestaurant(res);
@@ -54,6 +63,8 @@ function EventsCtrl($scope, eventsService, event){
      });
      return res;
   }
+
+  init(); //move to a better place
 }
 
 angular
