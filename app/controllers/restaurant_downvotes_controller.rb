@@ -2,6 +2,7 @@ class RestaurantDownvotesController < ApplicationController
 
   def create
     restaurant = Restaurant.find(params[:id])
+    restaurant.downvote_for(current_user)
     restaurant.restaurant_downvotes.build(user: current_user)
     if restaurant.save
       restaurant.decrement!(:votes)

@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20160630231814) do
     t.integer "restaurant_id"
   end
 
+  food_types
+    id      name    
+    1       Thai    
+    2       French
+
+  restaurants_food_types
+          food_type_id    restaurant_id
+             1                1
+
+
+
   create_table "restaurant_downvotes", force: :cascade do |t|
     t.integer  "restaurant_id"
     t.integer  "user_id"
