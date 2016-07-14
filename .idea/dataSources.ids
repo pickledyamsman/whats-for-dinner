@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails whats-for-dinner: development" uuid="f8dc0659-85b9-4274-b5bb-0e3944e19988">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails whats-for-dinner: test" uuid="db6a51a1-2e1d-466c-a501-26fefa51ee90">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

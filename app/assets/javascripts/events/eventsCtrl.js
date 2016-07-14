@@ -1,6 +1,7 @@
 function EventsCtrl($scope, eventsService, event){
+
   $scope.event = event;
-  
+
   $scope.addRestaurant = function(){
     
     if($scope.name === '') { return; }

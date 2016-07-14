@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   after_filter  :set_csrf_cookie_for_ng
 
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+
   respond_to :json
 
   def angular
