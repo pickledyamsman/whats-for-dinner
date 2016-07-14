@@ -37,16 +37,9 @@
     <div class="col-md-9"> <!-- restaurant data -->
       <h2>{{restaurant.name}}</h2>
       <ul>
+        <li>Type of food: {{restaurant.food_type}}</li>
         <li>Price: {{restaurant.avg_price}} dollars on average</li>
         <li>Location: {{restaurant.location}}</li>
-
-        <li>Types of food:
-          <ul>
-            <li ng-repeat="type in restaurant.food_type">
-              {{type.type_name}}
-            </li>
-          </ul>
-        </li>
       </ul>
     </div>
   </div>
@@ -60,17 +53,7 @@
 <form ng-show="showNewRestaurant" ng-submit="addRestaurant()" style="margin-top:30px;">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="name" ng-model="name"></input>
-
-    <div>
-      <label>Food Types</label>
-      <div ng-repeat="food_type in food_types">
-        <input type="text" class="form-control" placeholder="type of food" ng-model="food_type.type_name"></input>
-      </div>
-      <button class="btn btn-sm" type="button" ng-click="addNewType()">New Type</button>  
-    </div>
-    
-
-
+    <input type="text" class="form-control" placeholder="Type of food" ng-model="food_type"></input>
     <input type="text" class="form-control" placeholder="location" ng-model="location"></input>
     <input type="text" class="form-control" placeholder="average price" ng-model="avg_price"></input>
   </div>
